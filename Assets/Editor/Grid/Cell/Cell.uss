@@ -1,0 +1,14 @@
+.cell {
+    background-color: rgba(255, 255, 255, 255);
+    border-left-color: rgba(255, 216, 0, 255);
+    border-right-color: rgba(255, 216, 0, 255);
+    border-top-color: rgba(255, 216, 0, 255);
+    border-bottom-color: rgba(255, 216, 0, 255);
+}
+
+.cell:hover {
+    border-left-color: rgba(255, 216, 0, 255);
+    border-right-color: rgba(255, 216, 0, 255);
+    border-top-color: rgba(255, 216, 0, 255);
+    border-bottom-color: rgba(255, 216, 0, 255);
+}

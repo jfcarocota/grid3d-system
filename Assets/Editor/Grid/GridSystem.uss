@@ -1,0 +1,105 @@
+VisualElement {
+}
+
+.container {
+    background-color: rgb(96, 96, 96);
+}
+
+.element {
+    margin-top: 5px;
+    color: rgb(255, 255, 255);
+}
+
+.acrionsContainer {
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.btnGenerate {
+    width: 30%;
+    height: 30px;
+}
+
+.gridEditor {
+    align-items: center;
+    flex-grow: 1;
+}
+
+.grid {
+    padding-bottom: 0;
+    background-color: rgb(125, 125, 125);
+    margin-bottom: 10px;
+    border-left-width: 3px;
+    border-right-width: 3px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+    border-left-color: rgb(152, 152, 152);
+    border-right-color: rgb(152, 152, 152);
+    border-top-color: rgb(152, 152, 152);
+    border-bottom-color: rgb(152, 152, 152);
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.row {
+    flex-direction: row;
+    width: 100%;
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgb(0, 0, 0);
+    border-right-color: rgb(0, 0, 0);
+    border-top-color: rgb(0, 0, 0);
+    border-bottom-color: rgb(0, 0, 0);
+}
+
+.cell:hover {
+    width: 50px;
+    height: 50px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-left-color: rgb(255, 216, 0);
+    border-right-color: rgb(255, 216, 0);
+    border-top-color: rgb(255, 216, 0);
+    border-bottom-color: rgb(255, 216, 0);
+}
+
+.gridScrollView {
+    width: 400px;
+    align-items: center;
+    height: 400px;
+}
+
+.painter {
+    width: 100%;
+    height: auto;
+    background-color: rgb(58, 58, 58);
+    flex-direction: row;
+    flex-grow: 0;
+}
+
+.tool {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(190, 190, 190);
+    justify-content: center;
+    margin-left: 5px;
+    position: relative;
+}

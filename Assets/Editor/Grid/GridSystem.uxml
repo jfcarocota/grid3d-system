@@ -1,0 +1,24 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Editor/Grid/GridSystem.uss?fileID=7433441132597879392&amp;guid=115bac02fb06481479d54eacf0d8f852&amp;type=3#GridSystem" />
+    <ui:VisualElement name="container" class="container">
+        <uie:ObjectField label="Grid Data" name="gridData" />
+        <uie:ObjectField label="Source Object Grid" name="sourceObject" class="element" />
+        <uie:IntegerField label="Rows" value="42" name="n" class="element" />
+        <uie:IntegerField label="Colums" value="42" name="m" class="element" />
+        <uie:FloatField label="Cell Width" value="42.2" name="cellWitdth" class="element" />
+        <uie:FloatField label="Cell Height" value="42.2" name="cellHeight" class="element" />
+        <ui:ListView focusable="true" name="objecstList" show-foldout-header="true" show-add-remove-footer="true" reorderable="true" header-title="Grid Elements" />
+        <ui:IMGUIContainer name="arrayContainer" />
+        <ui:VisualElement name="actionsContainer" class="acrionsContainer">
+            <ui:Button text="Generate Grid" display-tooltip-when-elided="true" name="btnGenerate" class="btnGenerate" />
+        </ui:VisualElement>
+        <ui:VisualElement name="gridEditor" class="gridEditor">
+            <ui:VisualElement name="painter" class="painter" style="flex-direction: row;">
+                <ToolElement name="tool" color-attr="#00FF09FF" objname-attr="GrassGridElement" class="tool" style="background-image: url(&apos;project://database/Assets/Editor/Grid/Sprites/grass.png?fileID=2800000&amp;guid=e98c59b1736d2c84c9f80100ada6ca0f&amp;type=3#grass&apos;);" />
+                <ToolElement name="tool" tooltype-attr="forest" color-attr="#954C00FF" objname-attr="ForestGridElement" class="tool" style="background-image: url(&apos;project://database/Assets/Editor/Grid/Sprites/trees.png?fileID=2800000&amp;guid=fccc0a289dbcda2469aeb98eab1091c5&amp;type=3#trees&apos;);" />
+                <ToolElement name="tool" tooltype-attr="water" color-attr="#00D0FFFF" objname-attr="WaterGridElement" class="tool" style="background-image: url(&apos;project://database/Assets/Editor/Grid/Sprites/water.png?fileID=2800000&amp;guid=e8c0439bb2f86dc45bc76887439bb6e7&amp;type=3#water&apos;);" />
+            </ui:VisualElement>
+            <ui:ScrollView name="gridScrollView" mode="VerticalAndHorizontal" horizontal-page-size="-1" show-add-remove-footer="true" class="gridScrollView" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

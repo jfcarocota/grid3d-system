@@ -1,0 +1,6 @@
+.row {
+    flex-direction: row;
+    width: 100%;
+    background-color: yellow;
+    height: 20px;
+}
