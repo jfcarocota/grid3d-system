@@ -112,7 +112,7 @@ public class GridSystemEditor : Editor
     {
         if (_gridSystem.CurrentGridData != null)
         {
-            Debug.Log(_gridSystem.CurrentGridData.CurrentCellData[0].Number);
+            Debug.Log(_gridSystem.CurrentGridData.Number);
         }
         for (int y = 0; y < _gridSystem.GetM; y++)
         {
@@ -135,7 +135,7 @@ public class GridSystemEditor : Editor
                     CellData cellData = _gridSystem.CurrentGridData.CurrentCellData.Find(item => item.Position == new Vector2(x, y));
                     if (cellData.CellColor != null)
                     {
-                        //Debug.Log(cellData.CellColor);
+                        //Debug.Log(cellData.Position);
                         cell.style.backgroundColor = cellData.CellColor;
                     }
                 }
@@ -148,15 +148,12 @@ public class GridSystemEditor : Editor
                         {
                             GridData gridData = GridData.NewInstance(_gridSystem.GetN, _gridSystem.GetM);
                             _gridData.value = gridData;
-
+                            _gridSystem.CurrentGridData = gridData;
 
                             AssetDatabase.CreateAsset(gridData, _path);
                             CellData cellData = gridData.CurrentCellData.Find(item => item.Position == new Vector2(cell.posxAttr, cell.posyAttr));
                             cellData.CellColor = _currentCellColor;
                             cellData.GridElement = _currentGridElement;
-                            //EditorUtility.SetDirty(target);
-                            AssetDatabase.SaveAssets();
-                            AssetDatabase.Refresh();
                         }
                     }
                     else
@@ -164,10 +161,10 @@ public class GridSystemEditor : Editor
                         CellData cellData = _gridSystem.CurrentGridData.CurrentCellData.Find(item => item.Position == new Vector2(cell.posxAttr, cell.posyAttr));
                         cellData.CellColor = _currentCellColor;
                         cellData.GridElement = _currentGridElement;
-                        cellData.Number = 24;
-                        EditorUtility.SetDirty(target);
+                        _gridSystem.CurrentGridData.Number = 24;
                     }
                     cell.style.backgroundColor = _currentCellColor;
+                    EditorUtility.SetDirty(_gridSystem.CurrentGridData);
                     AssetDatabase.SaveAssets();
                     AssetDatabase.Refresh();
                 });
