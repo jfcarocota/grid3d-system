@@ -2,7 +2,6 @@
     <Style src="project://database/Assets/Editor/Grid/GridSystem.uss?fileID=7433441132597879392&amp;guid=115bac02fb06481479d54eacf0d8f852&amp;type=3#GridSystem" />
     <ui:VisualElement name="container" class="container">
         <uie:ObjectField label="Grid Data" name="gridData" />
-        <uie:ObjectField label="Source Object Grid" name="sourceObject" class="element" />
         <uie:IntegerField label="Rows" value="42" name="n" class="element" />
         <uie:IntegerField label="Colums" value="42" name="m" class="element" />
         <uie:FloatField label="Cell Width" value="42.2" name="cellWitdth" class="element" />
