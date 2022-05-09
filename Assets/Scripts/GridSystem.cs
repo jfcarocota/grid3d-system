@@ -10,10 +10,7 @@ public class GridSystem : MonoBehaviour
     [SerializeField]
     private int _m = 0;
 
-    private string[,] _grid;
-
     [SerializeField]
-    private GameObject[,] _srcObjects;
 
     private float _posX = 0f;
     private float _posY = 0f;
@@ -58,8 +55,6 @@ public class GridSystem : MonoBehaviour
     public int GetN => _n;
     public int GetM => _m;
 
-    public string[,] Grid { get => _grid; set => _grid = value; }
-    public GameObject[,] SrcObjects { get => _srcObjects; set => _srcObjects = value; }
     public string GridAssetPath { get => _gridAssetPath; set => _gridAssetPath = value; }
     public GridData CurrentGridData { get => _gridData; set => _gridData = value; }
 }

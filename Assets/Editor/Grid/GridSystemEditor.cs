@@ -12,15 +12,6 @@ public class GridSystemEditor : Editor
     private VisualTreeAsset _treeAsset;
     private StyleSheet _styleSheet;
 
-    private VisualTreeAsset _cellTreeAsset;
-    private VisualElement _cellUxml;
-    private StyleSheet _cellStyle;
-
-    private VisualTreeAsset _rowTreeAsset;
-    private VisualElement _rowUxml;
-    private StyleSheet _rowStyle;
-
-
     private IntegerField _n;
     private IntegerField _m;
     private FloatField _cellWitdth;
@@ -33,7 +24,6 @@ public class GridSystemEditor : Editor
 
     private Color _currentCellColor;
     private GameObject _currentGridElement;
-    private Label _gridAssetPath;
     private ObjectField _gridData;
     private string _path;
 
@@ -41,13 +31,9 @@ public class GridSystemEditor : Editor
 
     private void OnEnable()
     {
-        _gridAssetPath = new Label();
-        _gridAssetPath.BindProperty(serializedObject.FindProperty("_gridAssetPath"));
 
         _tools = new List<ToolElement>();
         _toolType = ToolElement.ToolType.grass;
-        _cellUxml = new VisualElement();
-        _rowUxml = new VisualElement();
         _root = new VisualElement();
         _gridSystem = (GridSystem)target;
         _treeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/Grid/GridSystem.uxml");
@@ -66,16 +52,6 @@ public class GridSystemEditor : Editor
         _m.BindProperty(serializedObject.FindProperty("_m"));
         _cellWitdth.BindProperty(serializedObject.FindProperty("_cellWidth"));
         _cellHeight.BindProperty(serializedObject.FindProperty("_cellHeight"));
-
-        _cellTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/Grid/Cell/Cell.uxml");
-        _cellStyle = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/Grid/Cell/Cell.uss");
-        _cellTreeAsset.CloneTree(_cellUxml);
-        _cellUxml.styleSheets.Add(_cellStyle);
-
-        _rowTreeAsset = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/Editor/Grid/Row/Row.uxml");
-        _rowStyle = AssetDatabase.LoadAssetAtPath<StyleSheet>("Assets/Editor/Grid/Row/Row.uss");
-        _rowTreeAsset.CloneTree(_rowUxml);
-        _rowUxml.styleSheets.Add(_rowStyle);
 
         _btnGenerateGrid.clicked += OnGeneratedGrid;
 
@@ -99,6 +75,7 @@ public class GridSystemEditor : Editor
         _gridData.RegisterValueChangedCallback(e =>
         {
             _gridSystem.CurrentGridData = e.newValue as GridData;
+            //CreateInspectorGUI();
         });
     }
 
@@ -110,10 +87,7 @@ public class GridSystemEditor : Editor
 
     private void PaintGrid()
     {
-        if (_gridSystem.CurrentGridData != null)
-        {
-            Debug.Log(_gridSystem.CurrentGridData.Number);
-        }
+
         for (int y = 0; y < _gridSystem.GetM; y++)
         {
             VisualElement row = new VisualElement();
@@ -161,7 +135,6 @@ public class GridSystemEditor : Editor
                         CellData cellData = _gridSystem.CurrentGridData.CurrentCellData.Find(item => item.Position == new Vector2(cell.posxAttr, cell.posyAttr));
                         cellData.CellColor = _currentCellColor;
                         cellData.GridElement = _currentGridElement;
-                        _gridSystem.CurrentGridData.Number = 24;
                     }
                     cell.style.backgroundColor = _currentCellColor;
                     EditorUtility.SetDirty(_gridSystem.CurrentGridData);
@@ -182,4 +155,6 @@ public class GridSystemEditor : Editor
 
         return _root;
     }
+
+    
 }

@@ -6,7 +6,6 @@
         <uie:IntegerField label="Colums" value="42" name="m" class="element" />
         <uie:FloatField label="Cell Width" value="42.2" name="cellWitdth" class="element" />
         <uie:FloatField label="Cell Height" value="42.2" name="cellHeight" class="element" />
-        <ui:ListView focusable="true" name="objecstList" show-foldout-header="true" show-add-remove-footer="true" reorderable="true" header-title="Grid Elements" />
         <ui:IMGUIContainer name="arrayContainer" />
         <ui:VisualElement name="actionsContainer" class="acrionsContainer">
             <ui:Button text="Generate Grid" display-tooltip-when-elided="true" name="btnGenerate" class="btnGenerate" />
